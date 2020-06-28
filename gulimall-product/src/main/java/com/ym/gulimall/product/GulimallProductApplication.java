@@ -24,6 +24,17 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  *  1. 配置全局的逻辑删除规则 （省略）
  *  2. 配置逻辑删除的组件bean (3.1 以上省略）
  *  3. 加上逻辑删除注解
+ *
+ *  3. JSR303 java规则
+ *    1. 给bean添加校验规则 javax.validation.constraints,并自定义message提示
+ *    2. 开启校验功能 @Valid
+ *       效果：校验错误以后会有默认的响应
+ *    3. 给校验的bean后紧跟一个BindingResult，就可以得到校验的结果
+ *
+ *
+ *
+ *
+ *
  */
 @EnableDiscoveryClient
 @MapperScan("com.ym.gulimall.product.dao")
