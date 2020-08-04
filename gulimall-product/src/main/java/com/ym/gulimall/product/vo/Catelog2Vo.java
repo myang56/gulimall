@@ -11,8 +11,8 @@ import java.util.List;
 @Data
 public class Catelog2Vo {
 
-    private String catelog1Id; // 1级分类id
-    private List<Catelog3Vo> catelog3List; // 三级子分类
+    private String catalog1Id; // 1级分类id
+    private List<Catelog3Vo> catalog3List; // 三级子分类
     private String id;
     private String name;
 
@@ -21,7 +21,7 @@ public class Catelog2Vo {
     @AllArgsConstructor
     @Data
     public static class Catelog3Vo {
-        private String catelog2Id; // 2级分类id
+        private String catalog2Id; // 2级分类id
         private String id;
         private String name;
 
