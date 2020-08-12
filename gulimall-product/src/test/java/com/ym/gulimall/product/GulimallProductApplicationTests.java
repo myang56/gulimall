@@ -8,9 +8,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * 1. 引入oss starter
@@ -27,6 +30,22 @@ public class GulimallProductApplicationTests {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
+
+    @Test
+    public void testStringRedisTemplate() {
+        ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
+        
+        // save
+        ops.set("hello", "word_" + UUID.randomUUID().toString());
+        
+        // search
+        String hello = ops.get("hello");
+        System.out.println("saved data is" + hello);
+    }
+
 
     @Test
     public void testFindPath() {
