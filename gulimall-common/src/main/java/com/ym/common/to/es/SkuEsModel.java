@@ -28,7 +28,7 @@ public class SkuEsModel {
 
     private Long brandId;
 
-    private String  brandName;
+    private String brandName;
 
     private String brandImg;
 
