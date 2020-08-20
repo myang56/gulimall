@@ -50,10 +50,10 @@ public class GulimallProductApplicationTests {
 
     @Test
     public void test() {
-//        List<SpuItemAttrGroupVo> attrGroupWithAttrsBySpuId = attrGroupDao.getAttrGroupWithAttrsBySpuId(6L, 225L);
-//        System.out.println(attrGroupWithAttrsBySpuId);
-        List<SKuItemSaleAttrVo> salesAttrBySpuId = skuSaleAttrValueDao.getSalesAttrBySpuId(6L);
-        System.out.println(salesAttrBySpuId);
+        List<SpuItemAttrGroupVo> attrGroupWithAttrsBySpuId = attrGroupDao.getAttrGroupWithAttrsBySpuId(5L, 225L);
+        System.out.println(attrGroupWithAttrsBySpuId);
+//        List<SKuItemSaleAttrVo> salesAttrBySpuId = skuSaleAttrValueDao.getSalesAttrBySpuId(6L);
+//        System.out.println(salesAttrBySpuId);
     }
 
 

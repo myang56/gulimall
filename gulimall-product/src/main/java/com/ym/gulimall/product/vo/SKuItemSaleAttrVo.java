@@ -10,5 +10,5 @@ import java.util.List;
 public class SKuItemSaleAttrVo {
     private Long attrId;
     private String attrName;
-    private String attrValues;
+    private List<AttrValueWithSkuIdVo> attrValues;
 }

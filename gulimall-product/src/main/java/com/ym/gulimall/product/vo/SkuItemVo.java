@@ -8,11 +8,11 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class  SkuItemVo {
+public class SkuItemVo {
 
     SkuInfoEntity info;
 
-//    private boolean hasStock = true;
+    boolean hasStock = true;
 
     List<SkuImagesEntity> images;
 
