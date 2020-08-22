@@ -57,8 +57,11 @@
 							</li>
 						</ul>
 						<ul class="header_ul_right">
-							<li style="border: 0;"><a href="/static/item/../登录页面\index.html" class="aa">你好，请登录</a></li>
-							<li><a href="/static/item/../注册页面\index.html" style="color: red;">免费注册</a> |</li>
+							<li style="border: 0;">
+								<a href="http://auth.gulimall/login.html" th:if="${session.loginUser==null}" class="aa">你好，请登录</a>
+								<a th:else class="aa" style="width: 200px">[[${session.loginUser.nickname}]] </a>
+							</li>
+							<li><a th:if="${session.loginUser==null}" href="http://auth.gulimall/reg.html"  style="color: red;">免费注册</a> |</li>
 							<li><a href="/static/item/javascript:;" class="aa">我的订单</a> |</li>
 							<li class="jingdong"><a href="/static/item/javascript:;">我的京东</a><span class="glyphicon glyphicon-menu-down">|</span>
 								<ol class="jingdong_ol">
@@ -251,7 +254,7 @@
 				<nav>
 				<div class="nav_min">
 					<div class="nav_top">
-						<div class="nav_top_one"><a href="/static/item/#"><img src="/static/item/img/111.png"/></a></div>
+						<div class="nav_top_one"><a href="http://gulimall.com"><img src="/static/item/img/111.png"/></a></div>
 						<div class="nav_top_two"><input type="text"/><button>搜索</button></div>
 						<div class="nav_top_three"><a href="/static/item/../JD_Shop/One_JDshop.html">我的购物车</a><span class="glyphicon glyphicon-shopping-cart"></span>
 							<div class="nav_top_three_1">
@@ -926,7 +929,7 @@
 				<div class="wenZi">
 					本产品全国联保，享受三包服务，质保期为：一年保<br />
 					如因质量问题或故障，凭厂商维修中心或特约维修点的质量检测证明，享受7日内退货，15日内换货，15日以上在保质期内享受免费保修等安保服务！<br />
-					(注：如厂家在商品介绍中有售后保障的说明，则此商品按照厂家说明执行售后保障服务。)您可以查询本品牌在各地售后服务中心的练习方式<a href="/static/item/#">请点击这儿查询...</a><br /><br />
+					(注：如厂家在商品介绍中有售后保障的说明，则此商品按照厂家说明执行售后保障服务。)您可以查询本品牌在各地售后服务中心的练习方式<a href="/static/item/#">请请点击这儿查询...</a><br /><br />
 				</div>
 			</div>
 			<div class="lianBao oCn">
