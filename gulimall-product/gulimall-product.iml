@@ -210,6 +210,8 @@
     <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.10.10" level="project" />
     <orderEntry type="library" name="Maven: org.jodd:jodd-bean:5.0.13" level="project" />
     <orderEntry type="library" name="Maven: org.jodd:jodd-core:5.0.13" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.session:spring-session-data-redis:2.3.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.session:spring-session-core:2.3.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-cache:2.3.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context-support:5.2.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-configuration-processor:2.3.0.RELEASE" level="project" />
