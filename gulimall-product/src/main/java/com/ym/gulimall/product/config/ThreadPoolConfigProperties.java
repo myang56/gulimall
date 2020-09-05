@@ -15,4 +15,11 @@ public class ThreadPoolConfigProperties {
 
     private Integer keepAliveTime;
 
+
+    public static void main(String[] args) {
+
+        ThreadPoolConfigProperties poolConfigProperties = new ThreadPoolConfigProperties();
+        System.out.println(poolConfigProperties.getCorePoolSize());
+    }
+
 }

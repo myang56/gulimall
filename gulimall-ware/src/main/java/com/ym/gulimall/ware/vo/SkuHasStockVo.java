@@ -6,7 +6,6 @@ import lombok.Data;
 public class SkuHasStockVo {
 
     private Long skuId;
-
     private Boolean hasStock;
 
 }
