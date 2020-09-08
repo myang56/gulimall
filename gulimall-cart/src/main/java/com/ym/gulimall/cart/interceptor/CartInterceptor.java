@@ -19,8 +19,10 @@ import java.util.UUID;
 public class CartInterceptor implements HandlerInterceptor {
 
     public static ThreadLocal<UserInfoTo> threadLocal = new ThreadLocal<>();
+
     /**
      * 在目标方法执行之前拦截
+     *
      * @param request
      * @param response
      * @param handler
@@ -36,7 +38,7 @@ public class CartInterceptor implements HandlerInterceptor {
         UserInfoTo userInfoTo = new UserInfoTo();
 
         if (member != null) {
-           // logged in, get cart info
+            // logged in, get cart info
             userInfoTo.setUserId(member.getId());
 
         }
@@ -61,6 +63,7 @@ public class CartInterceptor implements HandlerInterceptor {
 
     /**
      * 业务执行之后
+     *
      * @param request
      * @param response
      * @param handler

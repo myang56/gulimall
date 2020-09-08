@@ -50,7 +50,8 @@ public class OAuth2Controller {
             R r = memberFeignService.oauthLogin(socialUser);
             if (r.getCode() == 0) {
                 // session 子域共享问题
-                MemberRespVo data = r.getData("data", new TypeReference<MemberRespVo>() {});
+                MemberRespVo data = r.getData("data", new TypeReference<MemberRespVo>() {
+                });
                 session.setAttribute(AuthServerConstant.LOGIN_USER, data);
                 log.info("登录成功: 用户： {}", data.toString());
                 return "redirect:http://gulimall.com";

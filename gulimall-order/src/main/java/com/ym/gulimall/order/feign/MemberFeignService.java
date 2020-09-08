@@ -12,5 +12,5 @@ public interface MemberFeignService {
 
     @GetMapping("/member/memberreceiveaddress/{memberId}/addresses")
     List<MemberAddressVo> getAddress(@PathVariable("memberId") Long memberId);
-    
+
 }

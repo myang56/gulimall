@@ -1,7 +1,6 @@
 package com.ym.gulimall.order.config;
 
 
-
 import com.rabbitmq.client.Channel;
 import com.ym.gulimall.order.entity.OrderEntity;
 import org.springframework.amqp.core.Binding;
@@ -23,10 +22,10 @@ public class MyMQconfig {
 //    @Bean Binding, Queue, Exchange
 
 
-
     /**
      * 容器中Binding, Queue, Exchange都会自动创建（如果rabbitMQ没有的话）
      * 如果RabbitMQ已经创建后，如果改queue里面的参数也不会更新，需要先在rabbitmq里面删除，重启才能更新
+     *
      * @return
      */
     @Bean
@@ -75,6 +74,7 @@ public class MyMQconfig {
 
     /**
      * 订单释放直接和库存释放绑定
+     *
      * @return
      */
     @Bean

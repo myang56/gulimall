@@ -20,7 +20,6 @@ public class SearchParam {
     /**
      * filter condition
      * hasStock, skuPrice, brandId, catalogId3, attrs
-     *
      */
     private Integer hasStock = 1; //
     private String skuPrice; // price range

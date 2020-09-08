@@ -20,7 +20,7 @@ public class PayWebController {
     OrderService orderService;
 
     @ResponseBody
-    @GetMapping(value ="/payOrder", produces = "text/html")
+    @GetMapping(value = "/payOrder", produces = "text/html")
     public String payOrder(@RequestParam("orderSn") String orderSn) throws AlipayApiException {
 
 //        private String out_trade_no; // 商户订单号 必填

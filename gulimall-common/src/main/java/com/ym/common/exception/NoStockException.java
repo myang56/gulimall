@@ -1,6 +1,6 @@
 package com.ym.common.exception;
 
-public class NoStockException extends RuntimeException{
+public class NoStockException extends RuntimeException {
 
     private Long skuId;
 
@@ -8,6 +8,7 @@ public class NoStockException extends RuntimeException{
         super("商品id:" + skuId + ":没有足够的库存了");
 
     }
+
     public NoStockException(String msg) {
         super(msg);
     }

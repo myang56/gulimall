@@ -320,7 +320,8 @@ public class MallSearchServiceImpl implements MallSearchService {
             navVo.setNavName("品牌");
             R r = productFeignService.brandsInfo(searchParam.getBrandId());
             if (r.getCode() == 0) {
-                List<BrandVo> brand = r.getData("brand", new TypeReference<List<BrandVo>>(){});
+                List<BrandVo> brand = r.getData("brand", new TypeReference<List<BrandVo>>() {
+                });
 
                 StringBuffer buffer = new StringBuffer();
                 String replace = "";
@@ -334,9 +335,6 @@ public class MallSearchServiceImpl implements MallSearchService {
             navs.add(navVo);
         }
         // TODO 分类 不需要导航取消
-
-
-
 
 
         return result;

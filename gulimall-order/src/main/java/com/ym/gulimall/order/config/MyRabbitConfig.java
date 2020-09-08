@@ -56,7 +56,7 @@ public class MyRabbitConfig {
             public void returnedMessage(Message message, int i, String s, String s1, String s2) {
 
                 // 报错了，修改数据库当前消息的状态-》错误
-                System.out.println("Failed message " + message + i + s + s1 + s2 );
+                System.out.println("Failed message " + message + i + s + s1 + s2);
             }
         });
     }

@@ -22,6 +22,7 @@ public interface CartService {
 
     /**
      * delete item in the cart
+     *
      * @param skuId
      */
     void deleteItem(Long skuId);

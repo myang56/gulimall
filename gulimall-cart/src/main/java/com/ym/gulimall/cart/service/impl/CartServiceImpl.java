@@ -85,6 +85,7 @@ public class CartServiceImpl implements CartService {
 
     /**
      * 获取购物车某个购物项
+     *
      * @param skuId
      * @return
      */
@@ -102,7 +103,7 @@ public class CartServiceImpl implements CartService {
         Cart cart = new Cart();
         // logged in
         UserInfoTo userInfoTo = CartInterceptor.threadLocal.get();
-        if (userInfoTo.getUserId()!= null) {
+        if (userInfoTo.getUserId() != null) {
             // logged in
             String cartKey = CART_PREFIX + userInfoTo.getUserId();
             BoundHashOperations<String, Object, Object> hashOps = redisTemplate.boundHashOps(cartKey);
@@ -138,6 +139,7 @@ public class CartServiceImpl implements CartService {
 
     /**
      * 勾选购物项
+     *
      * @param skuId
      * @param check
      */
@@ -153,6 +155,7 @@ public class CartServiceImpl implements CartService {
 
     /**
      * change item count in cart
+     *
      * @param skuId
      * @param num
      */
@@ -182,7 +185,7 @@ public class CartServiceImpl implements CartService {
             List<CartItem> cartItems = getCartItems(cartKey);
             // 获取选中的购物项
             List<CartItem> collect = cartItems.stream().filter(item -> item.getCheck())
-                    .map(item->{
+                    .map(item -> {
                         // update to least price
                         R price = productFeignService.getPrice(item.getSkuId());
                         String data = (String) price.get("data");
@@ -204,15 +207,15 @@ public class CartServiceImpl implements CartService {
                 CartItem cartItem = JSON.parseObject(str, CartItem.class);
                 return cartItem;
             }).collect(Collectors.toList());
-           return collect;
+            return collect;
         }
         return null;
     }
 
 
-
     /**
      * 获取到要操作的购物车
+     *
      * @return
      */
     private BoundHashOperations<String, Object, Object> getCartOps() {

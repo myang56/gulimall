@@ -57,7 +57,6 @@ public class GulimallProductApplicationTests {
     }
 
 
-
     @Test
     public void testRedission() {
 
@@ -67,10 +66,10 @@ public class GulimallProductApplicationTests {
     @Test
     public void testStringRedisTemplate() {
         ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
-        
+
         // save
         ops.set("hello", "word_" + UUID.randomUUID().toString());
-        
+
         // search
         String hello = ops.get("hello");
         System.out.println("saved data is" + hello);

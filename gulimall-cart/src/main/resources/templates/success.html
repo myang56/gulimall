@@ -28,7 +28,7 @@
             <li class="forel">
             <li>
                 <a th:if="${session.loginUser == null}" href="http:gulimall.com/login.html" class="li_2">你好，请登录</a>
-                <a th:if="${session.loginUser != null}" style="width: 200px" >[[${session.loginUser.nickname}]]</a>
+                <a th:if="${session.loginUser != null}" style="width: 200px">[[${session.loginUser.nickname}]]</a>
             </li>
             <li>
                 <a th:if="${session.loginUser == null}" href="http:gulimall.com/reg.html">免费注册</a>

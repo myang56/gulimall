@@ -23,7 +23,8 @@ public class StockReleaseListener {
 
     /**
      * * 1. 下单成功，订单过期没有支付被系统自动取消，被用户取消，都要解锁库存
-     *  2.  下订单成功，库存锁定成功，接下来的业务调用失败，导致订单回滚
+     * 2.  下订单成功，库存锁定成功，接下来的业务调用失败，导致订单回滚
+     *
      * @param to
      * @param message
      */
@@ -36,7 +37,7 @@ public class StockReleaseListener {
 //            Boolean redelivered = message.getMessageProperties().getRedelivered();
             wareSkuService.unlockStock(to);
             channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
-        }catch (Exception e) {
+        } catch (Exception e) {
             channel.basicReject(message.getMessageProperties().getDeliveryTag(), true);
         }
 
@@ -47,9 +48,9 @@ public class StockReleaseListener {
 
         System.out.println("order closed unlock stock");
         try {
-           wareSkuService.unlockStock(orderTo);
+            wareSkuService.unlockStock(orderTo);
             channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
-        }catch (Exception e) {
+        } catch (Exception e) {
             channel.basicReject(message.getMessageProperties().getDeliveryTag(), true);
         }
     }

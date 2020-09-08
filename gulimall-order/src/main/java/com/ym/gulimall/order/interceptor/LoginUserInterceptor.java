@@ -13,13 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginUserInterceptor implements HandlerInterceptor {
 
     public static ThreadLocal<MemberRespVo> loginUser = new ThreadLocal<>();
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         // /order/order/status/{orderSn} 如果是这个url来的请求，直接放行，不需要login
         String uri = request.getRequestURI();
         boolean match = new AntPathMatcher().match("/order/order/status/**", uri);
-        if (match) {
+        boolean match1 = new AntPathMatcher().match("/payed/notify", uri);
+        if (match || match1) {
             return true;
         }
 

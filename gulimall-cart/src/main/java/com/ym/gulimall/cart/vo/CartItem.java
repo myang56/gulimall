@@ -73,6 +73,7 @@ public class CartItem {
 
     /**
      * calculate total price
+     *
      * @return
      */
     public BigDecimal getTotalPrice() {

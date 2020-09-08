@@ -19,7 +19,7 @@ class GulimallOrderApplicationTests {
 
     /**
      * 1. how to create exchanges,  queue, binding
-     *    use AmqpAdmin
+     * use AmqpAdmin
      * how to send/read message
      */
     @Autowired
@@ -27,7 +27,6 @@ class GulimallOrderApplicationTests {
 
     @Autowired
     RabbitTemplate rabbitTemplate;
-
 
 
     @Test
@@ -40,8 +39,8 @@ class GulimallOrderApplicationTests {
             returnReasonEntity.setName("haha " + i);
 
             String msg = "Hello World";
-            rabbitTemplate.convertAndSend("hello-java-exchange", "hello-java",  returnReasonEntity);
-            log.info("消息发送完成{}",  returnReasonEntity);
+            rabbitTemplate.convertAndSend("hello-java-exchange", "hello-java", returnReasonEntity);
+            log.info("消息发送完成{}", returnReasonEntity);
         }
 
     }

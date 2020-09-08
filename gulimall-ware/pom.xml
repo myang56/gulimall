@@ -22,7 +22,6 @@
     <dependencies>
 
 
-
         <dependency>
             <groupId>com.ym.gulimall</groupId>
             <artifactId>gulimall-common</artifactId>

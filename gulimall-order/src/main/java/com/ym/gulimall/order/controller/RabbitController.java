@@ -30,15 +30,15 @@ public class RabbitController {
                 returnReasonEntity.setCreateTime(new Date());
                 returnReasonEntity.setName("haha " + i);
                 String msg = "Hello World";
-                rabbitTemplate.convertAndSend("hello-java-exchange", "hello.java",  returnReasonEntity);
-                log.info("消息发送完成{}",  returnReasonEntity);
+                rabbitTemplate.convertAndSend("hello-java-exchange", "hello.java", returnReasonEntity);
+                log.info("消息发送完成{}", returnReasonEntity);
             } else {
 
                 OrderEntity orderEntity = new OrderEntity();
                 orderEntity.setOrderSn(UUID.randomUUID().toString());
                 String msg = "Hello World";
-                rabbitTemplate.convertAndSend("hello-java-exchange", "hello.java",  orderEntity);
-                log.info("消息发送完成{}",  orderEntity);
+                rabbitTemplate.convertAndSend("hello-java-exchange", "hello.java", orderEntity);
+                log.info("消息发送完成{}", orderEntity);
             }
         }
         return "ok";

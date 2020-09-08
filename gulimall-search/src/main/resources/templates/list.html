@@ -65,7 +65,7 @@
         <ul>
             <li>
                 <a th:if="${session.loginUser == null}" href="http:gulimall.com/login.html" class="li_2">你好，请登录</a>
-                <a th:if="${session.loginUser != null}" style="width: 200px" >[[${session.loginUser.nickname}]]</a>
+                <a th:if="${session.loginUser != null}" style="width: 200px">[[${session.loginUser.nickname}]]</a>
             </li>
             <li>
                 <a th:if="${session.loginUser == null}" href="http:gulimall.com/reg.html">免费注册</a>
@@ -767,7 +767,7 @@
             </div>
         </div>
 
-<!--        遍历面包屑功能-->
+        <!--        遍历面包屑功能-->
         <div class="JD_ipone_one c">
             <a th:each="nav: ${result.getNavs()}" th:href="${nav.getLink()}">
                 <span th:text="${nav.getNavName()}"></span>
@@ -854,7 +854,8 @@
                 </div>
 
                 <!--屏幕尺寸-->
-                <div class="JD_pre" th:each="attr:${result.attrs}" th:if="${!#lists.contains(result.attrIds,attr.attrId)}">
+                <div class="JD_pre" th:each="attr:${result.attrs}"
+                     th:if="${!#lists.contains(result.attrIds,attr.attrId)}">
                     <div class="sl_key">
                         <span th:text="${attr.attrName}">屏幕尺寸：</span>
                     </div>
@@ -1059,19 +1060,26 @@
                     <!--综合排序-->
                     <div class="filter_top">
                         <div class="filter_top_left" th:with="p = ${param.sort},priceRange= ${param.skuPrice}">
-                            <a   th:class="${(!#strings.isEmpty(p) && #strings.startsWith(p,'hotScore') && #strings.endsWith(p,'desc'))?'sort_a desc':'sort_a '}"
-                                 th:attr="style=${(#strings.isEmpty(p) || #strings.startsWith(p ,'hotScore'))?'color: #FFF;border-color:#e4393c;background: #e4393c':'color: #333;border-color:#CCC;background: #FFF'}"
-                                 sort="hotScore" href="/static/search/#">综合排序  [[${ (!#strings.isEmpty(p) && #strings.startsWith(p,'hotScore') && #strings.endsWith(p,'desc'))?'↓':'↑'}]]</a>
-                            <a  th:class="${(!#strings.isEmpty(p) && #strings.startsWith(p,'saleCount') && #strings.endsWith(p,'desc'))?'sort_a desc':'sort_a '}"
-                                th:attr="style=${(!#strings.isEmpty(p) && #strings.startsWith(p,'saleCount'))?'color: #FFF;border-color:#e4393c;background: #e4393c':'color: #333;border-color:#CCC;background: #FFF'}"
-                                sort="saleCount" href="/static/search/#">销量 [[${ (!#strings.isEmpty(p) && #strings.startsWith(p,'saleCount') && #strings.endsWith(p,'desc'))?'↓':'↑'}]]</a>
-                            <a  th:class="${(!#strings.isEmpty(p) && #strings.startsWith(p,'skuPrice') && #strings.endsWith(p,'desc'))?'sort_a desc':'sort_a '}"
-                                th:attr="style=${(!#strings.isEmpty(p) && #strings.startsWith(p ,'skuPrice'))?'color: #FFF;border-color:#e4393c;background: #e4393c':'color: #333;border-color:#CCC;background: #FFF'}"
-                                sort="skuPrice" href="/static/search/#">价格 [[${ (!#strings.isEmpty(p) && #strings.startsWith(p,'skuPrice') && #strings.endsWith(p,'desc'))?'↓':'↑'}]]</a>
+                            <a th:class="${(!#strings.isEmpty(p) && #strings.startsWith(p,'hotScore') && #strings.endsWith(p,'desc'))?'sort_a desc':'sort_a '}"
+                               th:attr="style=${(#strings.isEmpty(p) || #strings.startsWith(p ,'hotScore'))?'color: #FFF;border-color:#e4393c;background: #e4393c':'color: #333;border-color:#CCC;background: #FFF'}"
+                               sort="hotScore" href="/static/search/#">综合排序 [[${ (!#strings.isEmpty(p) &&
+                                #strings.startsWith(p,'hotScore') && #strings.endsWith(p,'desc'))?'↓':'↑'}]]</a>
+                            <a th:class="${(!#strings.isEmpty(p) && #strings.startsWith(p,'saleCount') && #strings.endsWith(p,'desc'))?'sort_a desc':'sort_a '}"
+                               th:attr="style=${(!#strings.isEmpty(p) && #strings.startsWith(p,'saleCount'))?'color: #FFF;border-color:#e4393c;background: #e4393c':'color: #333;border-color:#CCC;background: #FFF'}"
+                               sort="saleCount" href="/static/search/#">销量 [[${ (!#strings.isEmpty(p) &&
+                                #strings.startsWith(p,'saleCount') && #strings.endsWith(p,'desc'))?'↓':'↑'}]]</a>
+                            <a th:class="${(!#strings.isEmpty(p) && #strings.startsWith(p,'skuPrice') && #strings.endsWith(p,'desc'))?'sort_a desc':'sort_a '}"
+                               th:attr="style=${(!#strings.isEmpty(p) && #strings.startsWith(p ,'skuPrice'))?'color: #FFF;border-color:#e4393c;background: #e4393c':'color: #333;border-color:#CCC;background: #FFF'}"
+                               sort="skuPrice" href="/static/search/#">价格 [[${ (!#strings.isEmpty(p) &&
+                                #strings.startsWith(p,'skuPrice') && #strings.endsWith(p,'desc'))?'↓':'↑'}]]</a>
                             <a href="/static/search/#">评论分</a>
-                            <a  href="/static/search/#">上架时间</a>
-                            <input id="skuPriceFrom" type="number" style="width: 100px;margin-left: 30px;" th:value="${#strings.isEmpty(priceRange)?'':#strings.substringBefore(priceRange,'_') }"> -
-                            <input id="skuPriceTo" type="number" style="width: 100px;" th:value="${#strings.isEmpty(priceRange)?'':#strings.substringAfter(priceRange,'_') }"> <button id="skuPriceSearchBtn">确定</button>
+                            <a href="/static/search/#">上架时间</a>
+                            <input id="skuPriceFrom" type="number" style="width: 100px;margin-left: 30px;"
+                                   th:value="${#strings.isEmpty(priceRange)?'':#strings.substringBefore(priceRange,'_') }">
+                            -
+                            <input id="skuPriceTo" type="number" style="width: 100px;"
+                                   th:value="${#strings.isEmpty(priceRange)?'':#strings.substringAfter(priceRange,'_') }">
+                            <button id="skuPriceSearchBtn">确定</button>
                         </div>
                         <div class="filter_top_right">
                             <span class="fp-text">
@@ -1181,7 +1189,8 @@
                                 </li>
                                 <li>
                                     <a href="#" th:with="check=${param.hasStock}">
-                                        <input id="showHasStock" type="checkbox" th:checked="${#strings.equals(check,'1')}">
+                                        <input id="showHasStock" type="checkbox"
+                                               th:checked="${#strings.equals(check,'1')}">
                                         仅显示有货
                                     </a>
                                 </li>
@@ -1928,7 +1937,7 @@
         }
     }
 
-    $(".sort_a").click(function() {
+    $(".sort_a").click(function () {
 
         // changeStyle(this);
         $(this).toggleClass("desc");
@@ -1939,12 +1948,12 @@
     });
 
     function changeStyle(ele) {
-        $(".sort_a").css({"color": "#333", "board-color": "#CCC", "background":"#FFF"});
-        $(".sort_a").each(function(){
+        $(".sort_a").css({"color": "#333", "board-color": "#CCC", "background": "#FFF"});
+        $(".sort_a").each(function () {
             var text = $(this).text().replace("↓", "").replace("↑", "");
             $(this).text(text);
         });
-        $(ele).css({"color": "#FFF", "board-color": "#e4393c", "background":"#e4393c"});
+        $(ele).css({"color": "#FFF", "board-color": "#e4393c", "background": "#e4393c"});
 
         $(ele).toggleClass("desc"); //
         if ($(ele).hasClass("desc")) {
@@ -1954,7 +1963,7 @@
             $(ele).text(text);
 
         } else {
-            $(ele).text().replace("↑", "").replace("↓", "")  ;
+            $(ele).text().replace("↑", "").replace("↓", "");
             text = text + "↑";
             $(ele).text(text);
         }

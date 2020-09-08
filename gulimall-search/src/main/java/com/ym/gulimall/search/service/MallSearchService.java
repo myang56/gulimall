@@ -7,6 +7,7 @@ public interface MallSearchService {
 
     /**
      * all search param
+     *
      * @param param
      * @return
      */

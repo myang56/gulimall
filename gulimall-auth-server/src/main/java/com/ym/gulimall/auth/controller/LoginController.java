@@ -21,9 +21,11 @@ public class LoginController {
 
     @Autowired
     MemberFeignService memberFeignService;
+
     /**
      * 发送一个请求直接跳转的一个页面
      * SpringMVC viewController 将请求和页面映射
+     *
      * @return
      */
 
@@ -38,7 +40,6 @@ public class LoginController {
 //
 //        return "reg";
 //    }
-
     @GetMapping("/login.html")
     public String loginPage(HttpSession session) {
         Object attribute = session.getAttribute(AuthServerConstant.LOGIN_USER);
@@ -54,12 +55,14 @@ public class LoginController {
 
         R login = memberFeignService.login(vo);
         if (login.getCode() == 0) { // success
-            MemberRespVo data = login.getData("data", new TypeReference<MemberRespVo>() {});
+            MemberRespVo data = login.getData("data", new TypeReference<MemberRespVo>() {
+            });
             session.setAttribute(AuthServerConstant.LOGIN_USER, data);
             return "redirect:http://gulimall.com";
         } else {
             Map<String, String> errors = new HashMap<>();
-            errors.put("msg", login.getData("msg", new TypeReference<String>(){}));
+            errors.put("msg", login.getData("msg", new TypeReference<String>() {
+            }));
             redirectAttributes.addFlashAttribute("errors", errors);
             return "redirect:http://auth.gulimall.com/login.html";
         }

@@ -26,7 +26,7 @@ public class CartController {
     @GetMapping("/currentUserCartItems")
     @ResponseBody
     public List<CartItem> getCurrentUserCartItems() {
-       return cartService.getUserCartItems();
+        return cartService.getUserCartItems();
     }
 
     @GetMapping("/checkItem")
@@ -52,15 +52,15 @@ public class CartController {
     }
 
 
-
     /**
      * 浏览器有一个cookie，user-key：标识用户身份，一个月后过期
      * 如果第一次使用jd的购物车功能，都会给一个临时的用户身份
      * 浏览器以后保存，每次访问都会带上这个cookie
-     *
+     * <p>
      * 登录：session有
      * 没登录，按照cookie里面带俩的user-key来做
      * 第一次：如果没有临时用户，帮忙创建一个临时用户
+     *
      * @param
      * @return
      */
@@ -88,6 +88,7 @@ public class CartController {
 
     /**
      * 前面addTocart方法重定向到这个方法，这个方法就是查一下购车车，避免前面方法页面不断刷新，然后不断加进购物车的操作
+     *
      * @param skuId
      * @param model
      * @return

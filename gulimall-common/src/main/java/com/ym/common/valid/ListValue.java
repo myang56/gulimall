@@ -21,5 +21,5 @@ public @interface ListValue {
 
     Class<? extends Payload>[] payload() default {};
 
-    int[] vals()  default{};
+    int[] vals() default {};
 }

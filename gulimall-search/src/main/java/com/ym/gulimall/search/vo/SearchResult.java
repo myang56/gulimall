@@ -25,7 +25,7 @@ public class SearchResult {
     private List<Long> attrIds = new ArrayList<>();
 
     @Data
-    public static class NavVo{
+    public static class NavVo {
         private String navName;
         private String navValue;
         private String link;

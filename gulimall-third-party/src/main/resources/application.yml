@@ -1,4 +1,4 @@
- spring:
+spring:
   cloud:
     nacos:
       discovery:
@@ -12,7 +12,7 @@
   application:
     name: gulimall-third-party
 
- server:
+server:
   port: 30000
 
 
